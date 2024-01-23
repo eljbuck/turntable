@@ -1,0 +1,120 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW3 Project: Sequencer</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#description">Description</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#instructions">Instructions</a></li>
+                <li><a href="#downloads">Downloads</a></li>
+                <li><a href="#code">ChucK Code</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="description">
+            <h1>Sequencer: turntable</h1>
+            <p>Sequence music using a turntable! When active buttons on each vinyl pass the playhead (needle arm), they play their associated sound.</p>
+        </section>
+
+        <section id="screenshots">
+            <h2>Screenshots</h2>
+            <div class="screenshot-container">
+                <div class="screenshot">
+                    <img src="screenshot1.png" alt="Screenshot 1">
+                    <p>turntable playing both records</p>
+                </div>
+                <div class="screenshot">
+                    <img src="screenshot2.png" alt="Screenshot 2">
+                    <p>turntable playing one record</p>
+                </div>
+                <div class="screenshot">
+                    <img src="screenshot3.png" alt="Screenshot 3">
+                    <p>turntable when off</p>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="video">
+            <h2>Video</h2>
+            <div class="video-container">
+                <!-- Replace 'YOUR_YOUTUBE_VIDEO_ID' with the actual video ID from YouTube -->
+                <a href="https://youtu.be/FSCPtwekRKA" target="_blank">
+                    <div class="video-thumbnail" data-video-id="FSCPtwekRKA">
+                        <img src="placeholder-thumbnail.jpg" alt="Video Thumbnail">
+                    </div>
+                </a>
+            </div>
+        </section>
+        
+
+        <section id="instructions">
+            <h2>Instructions</h2>
+            <p>Turn on the turntable by pressing space (the time domain display will appear if it is turned on)! You can adjust the phaser to switch between records by using the Left and Right arrow keys. You can move the volume fader to adjust the gain by holding 'v' and using the Up and Down arrow keys. You can move the tempo fader to adjust the BPM by holding 't' and using the Up and Down arrow keys. If you want to pause the records during their cycle, simply press 'P'!</p>
+        </section>
+
+        <section id="downloads">
+            <h2>Downloads</h2>
+            <div class="download-links">
+                <p><strong>Turntable Download:</strong></p>
+                <p><a href="https://ccrma.stanford.edu/~eljbuck/256A/hw3/turntable.zip" download>Download .zip file</a></p>
+            </div>
+       </section>
+       
+
+        <section id="code">
+            <h2>ChucK Code</h2>
+            <p><a href="turntable.ck">turntable.ck</a></p>
+            <p><a href="KB.ck">KB.ck</a></p>
+            <p><a href="mouse.ck">mouse.ck</a></p>
+            <p><a href="circles.ck">circles.ck</a></p>
+            <p><a href="instrument.ck">instrument.ck</a></p>
+            <p><a href="gbutton.ck">gbutton.ck</a></p>
+            <p><a href="controller.ck">controller.ck</a></p>
+            <p><a href="player.ck">player.ck</a></p>
+            <p><a href="vinyl.ck">vinyl.ck</a></p>
+            <p><a href="run.ck">run.ck</a></p>
+        </section>
+
+        <section id="feedback">
+            <h2>Feedback and Reflection</h2>
+            <p>I had a really fun time working on this project. I surprised that my first milestone had worked with relatively low effort (especially after getting gutted by hw1), so I was worried that my idea might have been too unambitious. I was sorely mistaken, however, as it is significantly harder to synchronize two independently functioning sequencers together than it is to make one sequencer. This scaling up exposed all of the problems I had in my code for the first milestone (i.e. using a graphics-first approach), so I had to scrap a lot of my core functionality. Once I was able to get my single record player working with the new logic (having audio and graphics being sequenced independently, but synchronized together), it made it much easier to scale up to two record players. From here, most of the work was making choices about how I wanted the user to interact with the turntable. It was really interesting thinking about the different functional choices I could make (e.g. how switching between vinyls would be controlled) and how those choices would impact the user's experience with the sequencer. I eventually landed on a set of control mappings that I liked, but more importantly, facilitated the music that I wanted to create with the sequencer. I think that this is still limited in terms of it's capability for melody and harmony, but it makes for a really awesome drum machine with simple harmonies/melody lines. Another territory that I did not explore, but I know would be possible given the sequencer's functionality would be polyrhythmic sequencing (not sure if this was what Josh was referring to by Euclidean sequencing), but that would be fun to explore in the future. </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Ethan Buck</p>
+    </footer>
+
+    <script>
+        // Function to replace the placeholder thumbnail with the actual YouTube video thumbnail
+        function loadYouTubeThumbnail() {
+            var thumbnailContainers = document.querySelectorAll('.video-thumbnail');
+    
+            thumbnailContainers.forEach(function (container) {
+                var videoId = container.getAttribute('data-video-id');
+                if (videoId) {
+                    var thumbnailUrl = 'https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg';
+                    var img = container.querySelector('img');
+                    img.src = thumbnailUrl;
+                }
+            });
+        }
+    
+        // Load the YouTube thumbnails when the page is fully loaded
+        window.addEventListener('load', loadYouTubeThumbnail);
+    </script>
+    
+</body>
+</html>
